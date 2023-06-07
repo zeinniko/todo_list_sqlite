@@ -28,6 +28,7 @@ class NotesCard extends StatelessWidget {
             note.description,
             style: const TextStyle(fontSize: 17),
           ),
+          Icon(Icons.delete)
         ],
       ),
     );
