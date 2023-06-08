@@ -6,8 +6,8 @@ class NotesOperation with ChangeNotifier {
 
   List<Note> get getNotes => _notes;
 
-  void addNewNote(String title, String description){
-    Note note = Note(title, description);
+  void addNewNote(String nama, String no_hp, String npm){
+    Note note = Note(nama, no_hp, npm);
     _notes.add(note);
     notifyListeners();
   }

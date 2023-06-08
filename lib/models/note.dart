@@ -1,6 +1,7 @@
 class Note {
-  String  title;
-  String  description;
+  String nama;
+  String no_hp;
+  String npm;
 
-  Note(this.title, this.description);
+  Note(this.nama, this.no_hp, this.npm);
 }
