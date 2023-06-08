@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list_sqlite/models/notes_operation.dart';
 
-
 class AddScreen extends StatelessWidget {
   const AddScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    String? titleText;
-    String? descriptionText;
+    String? namaText;
+    String? no_hpText;
+    String? npmText;
 
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Color(0xFFD8C4B6),
       appBar: AppBar(
         title: const Text('Todo List'),
         centerTitle: true,
@@ -31,7 +31,7 @@ class AddScreen extends StatelessWidget {
             TextField(
               decoration: const InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Title',
+                hintText: 'Nama',
                 hintStyle: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -44,42 +44,61 @@ class AddScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               onChanged: (value) {
-                titleText = value;
+                namaText = value;
               },
             ),
-            Expanded(
-              child: TextField(
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Enter Description',
-                  hintStyle: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-                style: const TextStyle(
+            TextField(
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'No Hp',
+                hintStyle: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                 ),
-                onChanged: (value) {
-                  descriptionText = value;
-                },
               ),
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+              onChanged: (value) {
+                no_hpText = value;
+              },
+            ),
+            TextField(
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'NPM',
+                hintStyle: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+              onChanged: (value) {
+                npmText = value;
+              },
+            ),
+            SizedBox(
+              height: 400,
             ),
             TextButton(
-
               onPressed: () {
-                if (titleText != null && descriptionText != null) {
-                  context.read<NotesOperation>().addNewNote(titleText!, descriptionText!);
+                if (namaText != null && no_hpText != null) {
+                  context
+                      .read<NotesOperation>()
+                      .addNewNote(namaText!, no_hpText!, npmText!);
                 }
                 Navigator.pop(context);
               },
               style: TextButton.styleFrom(
-                padding:
-                    const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
+                padding: const EdgeInsets.only(
+                    left: 30, right: 30, top: 10, bottom: 10),
                 backgroundColor: Colors.white,
               ),
-              child: const Text('Add Note',
+              child: const Text('Tambahkan data',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
